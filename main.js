@@ -73,10 +73,15 @@ var vtcpu='',vtll='',vprio='',vQ='';
 function crearformulario() {
   cantprocesos = document.getElementById("cantprocesos").value;
   QQ=1;
-  if (cantprocesos == '' || cantprocesos<=0) {
-    alert("Debe ingresar un valor para la cantidad de procesos y este no puede ser negativo o 0");
+  if (cantprocesos == '') {
+    alert("Debe ingresar la cantidad de procesos");
     return;
   }
+  if ( cantprocesos<=0) {
+    alert("Debe ingresar valores mayores a 0");
+    return;
+  }
+  
   formularioall.style.display = 'block';
   formulario1.style.display = 'none';
 
@@ -133,10 +138,45 @@ function crearformulario() {
   var buttonañadirall = document.createElement("input");
   buttonañadirall.setAttribute("type", "button");
   buttonañadirall.setAttribute("value", "Añadir");
-  buttonañadirall.setAttribute("onclick", "añadirall();")
+  buttonañadirall.setAttribute("onclick", "verificacionFormGeneral();")
   formularioall.appendChild(buttonañadirall);
   form.appendChild(br.cloneNode());
 }
+
+function verificacionFormGeneral(){
+  for (let i = 0; i < cantprocesos; i++) {
+
+    if(document.getElementById(`Tcpuall${i}`).value==''){
+      alert("debe ingresar informacion en el campo de tiempo de cpu");
+      return
+    }
+    
+
+    if(document.getElementById(`Tllegadaall${i}`).value==''){
+      alert("debe ingresar informacion en el campo de tiempo de llegada");
+      return
+    }
+    
+
+    if(document.getElementById(`Tpall${i}`).value==''){
+      alert("debe ingresar informacion en el campo de prioridad");
+      return
+    }
+
+    if(document.getElementById('quantum').value==''){
+      alert("debe ingresar informacion en el campo de quantum");
+      return
+    }
+
+
+    if(document.getElementById(`Tcpuall${i}`).value<=0||document.getElementById(`Tllegadaall${i}`).value<=0||document.getElementById(`Tpall${i}`).value<=0||document.getElementById('quantum').value<=0){
+      alert("Los valores deben ser mayores a 0");
+      return
+    }
+  }
+  añadirall();
+}
+
 
 function añadirall() {
 
