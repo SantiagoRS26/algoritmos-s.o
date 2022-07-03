@@ -73,8 +73,8 @@ var vtcpu='',vtll='',vprio='',vQ='';
 function crearformulario() {
   cantprocesos = document.getElementById("cantprocesos").value;
   QQ=1;
-  if (cantprocesos == '') {
-    alert("Si llena manualmente los datos, debe ingresar una cantidad de procesos.");
+  if (cantprocesos == '' || cantprocesos<=0) {
+    alert("Debe ingresar un valor para la cantidad de procesos y este no puede ser negativo o 0");
     return;
   }
   formularioall.style.display = 'block';
@@ -189,7 +189,7 @@ function añadirramdon() {
     e=0;
   } 
 
-  cantprocesos = random(1, limitnp);
+  cantprocesos = random(2, limitnp);
   tempQ=random(1,limitQ);
 
 
