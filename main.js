@@ -147,24 +147,24 @@ function verificacionFormGeneral(){
   for (let i = 0; i < cantprocesos; i++) {
 
     if(document.getElementById(`Tcpuall${i}`).value==''){
-      alert("debe ingresar informacion en el campo de tiempo de cpu");
+      alert("Debe ingresar informacion en el campo de tiempo de cpu.");
       return
     }
     
 
     if(document.getElementById(`Tllegadaall${i}`).value==''){
-      alert("debe ingresar informacion en el campo de tiempo de llegada");
+      alert("Debe ingresar informacion en el campo de tiempo de llegada.");
       return
     }
     
 
     if(document.getElementById(`Tpall${i}`).value==''){
-      alert("debe ingresar informacion en el campo de prioridad");
+      alert("Debe ingresar informacion en el campo de prioridad.");
       return
     }
 
     if(document.getElementById('quantum').value==''){
-      alert("debe ingresar informacion en el campo de quantum");
+      alert("Debe ingresar informacion en el campo de quantum.");
       return
     }
 
