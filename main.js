@@ -199,12 +199,19 @@ function añadirall() {
 function añadirramdon() {
 
   mt = 1;
-  limitnp = document.getElementById('limitenump').value;
-  limitcpu = document.getElementById('limitetcpu').value
-    , limitlleg = document.getElementById('limitetllegada').value,
-    limitprio = document.getElementById('limiteprioridad').value;
-  
-    limitQ = $('#limitequantum').val();
+
+  if($('#limitenump').val()<0||$('#limitetcpu').val()||$('#limitetllegada').val()||$('#limiteprioridad').val()||$('#limitequantum').val()){
+    alert("Debe ingresar datos positivos");
+    return
+  }
+  limitnp=$('#limitenump').val();
+  limitcpu=$('#limitetcpu').val();
+  limitlleg=$('#limitetllegada').val();
+  limitprio=$('#limiteprioridad').val();
+  limitQ = $('#limitequantum').val();
+
+
+    
     
   divlimites.style.display = 'none';
 
