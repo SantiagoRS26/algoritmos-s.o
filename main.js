@@ -200,7 +200,7 @@ function añadirramdon() {
 
   mt = 1;
 
-  if($('#limitenump').val()<0||$('#limitetcpu').val()||$('#limitetllegada').val()||$('#limiteprioridad').val()||$('#limitequantum').val()){
+  if($('#limitenump').val()<0||$('#limitetcpu').val()<0||$('#limitetllegada').val()<0||$('#limiteprioridad').val()<0||$('#limitequantum').val()<0){
     alert("Debe ingresar datos positivos");
     return
   }
