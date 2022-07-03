@@ -13,7 +13,7 @@ td {
   text-align: center;
 }
 
-#limites{
+#limites {
   text-align: center;
 }
 
@@ -118,9 +118,11 @@ input {
   color: #0d0c22;
   transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
-#cantprocesos{
+
+#cantprocesos {
   width: 90%;
 }
+
 input:focus,
 input:hover {
   outline: none;
@@ -149,23 +151,26 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-#diagramas{
+#diagramas {
   text-align: center;
   margin-top: 5%;
 }
-fresh{
+
+fresh {
   display: flex;
   justify-content: center;
   width: 100%;
   margin-top: 100px;
   margin-bottom: 100px;
 }
+
 fresh th {
   background: linear-gradient(rgb(80, 255, 246), rgb(76, 255, 186));
   text-align: center;
   border: 2px solid black;
   height: 400 px;
 }
+
 fresh td {
   border: 2px solid black;
   border-bottom: 0;
@@ -173,13 +178,15 @@ fresh td {
   height: 30px;
   text-align: right;
 }
-fresh table{
+
+fresh table {
   width: 80%;
 }
 
 #curtain {
   background-color: white;
 }
+
 #curtain1 {
   background-color: white;
 }
@@ -191,4 +198,3 @@ fresh table{
 #curtain3 {
   background-color: white;
 }
-

@@ -105,14 +105,14 @@ function drawfcfs() {
         + td
         + '</tr></table>'
     );
-    let suma=0;
-    for(let i = 0; i<(ids-1) ;i++){
+    let suma = 0;
+    for (let i = 0; i < (ids - 1); i++) {
         let sim = parseInt(document.getElementById(`id${i}`).innerHTML);
         suma = suma + sim;
     }
     suma = suma / ids;
     $('#timepro').html('');
-    $('#timepro').html('<p>Tiempo promedio de espera: ' +suma.toFixed(2)+ '</p><p>');
+    $('#timepro').html('<p>Tiempo promedio de espera: ' + suma.toFixed(2) + '</p><p>');
     animate();
 }
 
@@ -123,7 +123,7 @@ function drawsjf() {
     var td = '';
     var executeTimes = [];
     let contador = 0;
-    let tempo=0;
+    let tempo = 0;
 
     $.each(inputTable, function (key, value) {
         if (key == 0) return true;
@@ -150,12 +150,12 @@ function drawsjf() {
         + td
         + '</tr></table>'
     );
-    let suma=0;
-    for (let i = 0; i < (contador-1); i++) {
+    let suma = 0;
+    for (let i = 0; i < (contador - 1); i++) {
         let sim = parseInt(document.getElementById(`id1${i}`).innerHTML);
         suma = suma + sim;
     }
-    suma = suma/contador;
+    suma = suma / contador;
     $('#timepro1').html('');
     $('#timepro1').html('<p>Tiempo promedio de espera: ' + suma.toFixed(2) + '</p>');
 
@@ -184,8 +184,8 @@ function drawprioridad() {
 
     $.each(executeTimes, function (key, value) {
         th += '<th style="height: 60px; width: ' + value.executeTime * 20 + 'px;">P' + value.P + '</th>';
-        tempo = tempo+value.executeTime;
-        td += '<td id="id2' +contador+ '">' + tempo + '</td>';
+        tempo = tempo + value.executeTime;
+        td += '<td id="id2' + contador + '">' + tempo + '</td>';
         contador++;
     });
 
@@ -196,15 +196,15 @@ function drawprioridad() {
         + '</tr></table>'
     );
 
-    let suma=0;
-    for (let i = 0; i < (contador-1); i++) {
+    let suma = 0;
+    for (let i = 0; i < (contador - 1); i++) {
         let sim = parseInt(document.getElementById(`id2${i}`).innerHTML);
         suma = suma + sim;
     }
-    suma = suma/contador;
+    suma = suma / contador;
     $('#timepro2').html('');
     $('#timepro2').html('<p>Tiempo promedio de espera: ' + suma.toFixed(2) + '</p>');
-    
+
     animate2();
 }
 
@@ -213,8 +213,8 @@ function drawrobin() {
     var inputTable = $('#inputTable tr');
     var th = '';
     var td = '';
-    let contador=0;
-    let tempo2=0;
+    let contador = 0;
+    let tempo2 = 0;
     var quantum = 2;
     /* var quantum = $('#quantum').val(); */
     var executeTimes = [];
@@ -232,12 +232,12 @@ function drawrobin() {
             if (value.executeTime > 0) {
                 th += '<th style="height: 60px; width: ' + (value.executeTime > quantum ? quantum : value.executeTime) * 20 + 'px;">P' + value.P + '</th>';
                 contador = (contador + (value.executeTime > quantum ? quantum : value.executeTime));
-                td += '<td id="ids3' +tempo2+'">' + contador + '</td>';
+                td += '<td id="ids3' + tempo2 + '">' + contador + '</td>';
                 value.executeTime -= quantum;
                 areWeThereYet = false;
                 tempo2++;
             }
-            
+
         });
     }
     $('#DIA3').html('<table id="resultTable"<tr>'
@@ -248,12 +248,12 @@ function drawrobin() {
     );
 
 
-    let suma=0;
-    for (let i = 0; i < (tempo2-1); i++) {
+    let suma = 0;
+    for (let i = 0; i < (tempo2 - 1); i++) {
         let sim = parseInt(document.getElementById(`ids3${i}`).innerHTML);
         suma = suma + sim;
     }
-    suma = suma/cantprocesos;
+    suma = suma / cantprocesos;
     $('#timepro3').html('');
     $('#timepro3').html('<p>Tiempo promedio de espera: ' + suma.toFixed(2) + '</p>');
     animate3();

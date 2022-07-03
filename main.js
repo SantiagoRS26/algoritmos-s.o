@@ -63,13 +63,13 @@ var vectortcpuprioridad = [];
 var vectortllegadaprioridad = [];
 var vectorpprioridad = [];
 
-var limitcpu, limitlleg, limitprio,limitnp;
+var limitcpu, limitlleg, limitprio, limitnp;
 var a = 1, b = 1, c = 1, d = 1;
 var mt = 0;
 
 function crearformulario() {
   cantprocesos = document.getElementById("cantprocesos").value;
-  if(cantprocesos == ''){
+  if (cantprocesos == '') {
     alert("Si llena manualmente los datos, debe ingresar una cantidad de procesos.");
     return;
   }
@@ -201,9 +201,9 @@ function mostrartodo() {
     divtablalimites.style.display = 'none';
   }
 
-  var tabla = document.getElementById('tabladatos');  
+  var tabla = document.getElementById('tabladatos');
 
-  
+
   let tablita = document.getElementById('inputTable');
   let tiempolle = 0;
   for (let i = 0; i < cantprocesos; i++) {
@@ -212,15 +212,15 @@ function mostrartodo() {
     let inp = document.createElement('input');
     let inp2 = document.createElement('input');
     inp2.type = "text";
-    inp2.setAttribute("disabled","");
-    inp2.setAttribute("style","all: unset;")
-    inp.setAttribute("class","initial exectime");
-    inp.setAttribute("disabled","");
-    inp.setAttribute("style","all: unset;")
+    inp2.setAttribute("disabled", "");
+    inp2.setAttribute("style", "all: unset;")
+    inp.setAttribute("class", "initial exectime");
+    inp.setAttribute("disabled", "");
+    inp.setAttribute("style", "all: unset;")
 
-    inp.setAttribute("type","text");
-    inp.setAttribute("value",vectortcpuprioridad[i]);
-    inp2.setAttribute("value",vectorpprioridad[i]);
+    inp.setAttribute("type", "text");
+    inp.setAttribute("value", vectortcpuprioridad[i]);
+    inp2.setAttribute("value", vectorpprioridad[i]);
 
     let cell1 = row.insertCell(0);
     let cell2 = row.insertCell(1);
@@ -230,19 +230,19 @@ function mostrartodo() {
     cell1.innerHTML = vectornombresprioridad[i];
     cell2.innerHTML = tiempolle;
     cell3.appendChild(inp);
-    cell4.setAttribute("class","servtime");
+    cell4.setAttribute("class", "servtime");
     cell5.appendChild(inp2);
-    if(i==0){
-      cell5.setAttribute("class","priority-only initial");
+    if (i == 0) {
+      cell5.setAttribute("class", "priority-only initial");
     }
-    else{
-      cell5.setAttribute("class","priority-only");
+    else {
+      cell5.setAttribute("class", "priority-only");
     }
     tiempolle++;
     $('#diagramas').html('');
     $('#diagramas').html('<h3>DIAGRAMA FCFS</h3><fresh></fresh><p id="timepro"></p><h3>DIAGRAMA DE SJF</h3><fresh id="DIA1"></fresh><p id="timepro1"></p><h3>DIAGRAMA DE PRIORIDAD</h3><fresh id="DIA2"></fresh><p id="timepro2"></p><h3>DIAGRAMA DE ROBIN</h3><fresh id="DIA3"></fresh><p id="timepro3"></p><p>Timer: <strong id="timer"></strong> sec</p>');
   }
-  
+
 
 
 
