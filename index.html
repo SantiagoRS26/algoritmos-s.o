@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <div class="header">
+        <h1>LABORATORIO 2</h1>
+    </div>
+</head>
+
+<body>
+    <br>
+    <div id="encabezado">
+        <form id="formulario1">
+            <h3>Cuantos procesos serán</h3>
+            <br>
+            <input type="number" id="cantprocesos" placeholder="Cantidad de procesos" autocomplete="off">
+            <br><br>
+            <button type="button" onclick="crearformulario()"><span class="boton">LLENAR DATOS</span></button>
+        
+            <button type="button" onclick="divlimites.style.display='block', formulario1.style.display='none';;"><span
+                    class="boton">DATOS RAMDON</span></button>
+            
+        </form>
+        
+    </div>
+
+    <div id="limites">
+        <br><br>
+        <h3>Desea colocar limites a la genereacion ramdon?</h3>
+        <br>
+        <input type="number" id="limitenump" placeholder="numeros de procesos" autocomplete="off">
+        <input type="number" id="limitetcpu" placeholder="Tiempos de cpu" autocomplete="off">
+        <input type="number" id="limitetllegada" placeholder="Tiempos de llegada" autocomplete="off">
+        <input type="number" id="limiteprioridad" placeholder="Prioridad" autocomplete="off">
+
+        <br><br>
+        <h3>si no escribe nada no se tendran limites</h3>
+        <button type="button" onclick="añadirramdon(); " ><span class="boton">GENERAR
+                DATOS</span></button>
+
+    </div>
+
+
+    <div id="formul">
+        <form id="formularioall">
+            <h3>FORMULARIO GENERAL</h3>
+        </form>
+    </div>
+    <div id="diagramaall">
+        <table id="inputTable" class="table table-success table-striped">
+            <tr>
+                <th>Proceso</th>
+                <th>Tiempo Llegada</th>
+                <th>Tiempo de Cpu</th>
+                <th class="servtime">Service Time</th>
+                <th>Prioridad</th>
+            </tr>
+        </table>
+
+
+        <!-- TABLA DATOS -->
+
+        <table id="tablalimites" class="table table-success table-striped">
+            <tr>
+                <td> </td>
+                <td>Numero de procesos</td>
+                <td>Tiempo de cpu</td>
+                <td>Tiempo de llegada</td>
+                <td>Prioridad</td>
+            </tr>
+
+        </table>
+
+    </div>
+    <div id="diagramas">
+
+    </div>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+    
+    <script src="graph.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
