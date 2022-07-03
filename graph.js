@@ -1,4 +1,5 @@
 
+
 function animate() {
     $('fresh').prepend('<div id="curtain" style="position: absolute; right: 0; width:100%; height:100px;"></div>');
 
@@ -113,6 +114,9 @@ function drawfcfs() {
     suma = suma / ids;
     $('#timepro').html('');
     $('#timepro').html('<p>Tiempo promedio de espera: ' + suma.toFixed(2) + '</p><p>');
+
+
+
     animate();
 }
 
@@ -210,13 +214,20 @@ function drawprioridad() {
 
 function drawrobin() {
     $('#DIA3').html('');
+    
     var inputTable = $('#inputTable tr');
     var th = '';
     var td = '';
     let contador = 0;
     let tempo2 = 0;
-    var quantum = 2;
-    /* var quantum = $('#quantum').val(); */
+
+    if(tempQ==''){
+        quantum = $('#quantum').val();
+    }else{
+        quantum=tempQ;
+    }
+    
+    $('#tq').html('<p>El quantum usado fue de: '+ quantum+'</p>');
     var executeTimes = [];
 
     $.each(inputTable, function (key, value) {

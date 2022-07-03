@@ -20,10 +20,9 @@
         <form id="formulario1">
             <h3>¿Cuantos procesos serán?</h3>
             <br>
-            <input type="number" id="cantprocesos" placeholder="Cantidad de procesos" autocomplete="off">
+            <input type="number" id="cantprocesos" placeholder="Cantidad de procesos"  autocomplete="off">
             <br><br>
             <button type="button" onclick="crearformulario()"><span class="boton">LLENAR DATOS</span></button>
-
             <button type="button" onclick="divlimites.style.display='block', formulario1.style.display='none';;"><span
                     class="boton">DATOS RAMDON</span></button>
 
@@ -39,6 +38,7 @@
         <input type="number" id="limitetcpu" placeholder="Tiempos de cpu" autocomplete="off">
         <input type="number" id="limitetllegada" placeholder="Tiempos de llegada" autocomplete="off">
         <input type="number" id="limiteprioridad" placeholder="Prioridad" autocomplete="off">
+        <input type="number" id="limitequantum" placeholder="Quantum" autocomplete="off">
 
         <br><br>
         <h3>si no escribe nada no se tendran limites</h3>
@@ -54,15 +54,16 @@
         </form>
     </div>
     <div id="diagramaall">
+        <form id="formtable">
         <table id="inputTable" class="table table-success table-striped">
             <tr>
                 <th>Proceso</th>
                 <th>Tiempo Llegada</th>
                 <th>Tiempo de Cpu</th>
-                <th class="servtime">Service Time</th>
                 <th>Prioridad</th>
             </tr>
         </table>
+    </form>
 
 
         <!-- TABLA DATOS -->
@@ -74,6 +75,7 @@
                 <td>Tiempo de cpu</td>
                 <td>Tiempo de llegada</td>
                 <td>Prioridad</td>
+                <td>Quantum</td>
             </tr>
 
         </table>

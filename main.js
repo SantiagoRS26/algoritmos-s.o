@@ -63,12 +63,16 @@ var vectortcpuprioridad = [];
 var vectortllegadaprioridad = [];
 var vectorpprioridad = [];
 
-var limitcpu, limitlleg, limitprio, limitnp;
-var a = 1, b = 1, c = 1, d = 1;
+var limitcpu, limitlleg, limitprio, limitnp,limitQ;
+var a = 1, b = 1, c = 1, d = 1,e=1;
 var mt = 0;
+var quantum,tempQ='';
+
+var vtcpu='',vtll='',vprio='',vQ='';
 
 function crearformulario() {
   cantprocesos = document.getElementById("cantprocesos").value;
+  QQ=1;
   if (cantprocesos == '') {
     alert("Si llena manualmente los datos, debe ingresar una cantidad de procesos.");
     return;
@@ -115,6 +119,17 @@ function crearformulario() {
 
     document.getElementById("formularioall").appendChild(form);
   }
+
+  var Q = document.createElement("input");
+  Q.setAttribute("type", "Number");
+  Q.setAttribute("id", `quantum`);
+  Q.setAttribute("placeholder", "Quantum");
+  formularioall.appendChild(Q);
+  formularioall.appendChild(br.cloneNode());
+  formularioall.appendChild(br.cloneNode());
+  formularioall.appendChild(br.cloneNode());
+
+
   var buttonañadirall = document.createElement("input");
   buttonañadirall.setAttribute("type", "button");
   buttonañadirall.setAttribute("value", "Añadir");
@@ -148,8 +163,9 @@ function añadirramdon() {
   limitcpu = document.getElementById('limitetcpu').value
     , limitlleg = document.getElementById('limitetllegada').value,
     limitprio = document.getElementById('limiteprioridad').value;
-
-  console.log(limitnp);
+  
+    limitQ = $('#limitequantum').val();
+    
   divlimites.style.display = 'none';
 
   if (limitnp.length == 0) {
@@ -168,8 +184,17 @@ function añadirramdon() {
     limitprio = 10;
     c = 0;
   }
+  if(limitQ.length==0){
+    limitQ = 10;
+    e=0;
+  } 
 
   cantprocesos = random(1, limitnp);
+  tempQ=random(1,limitQ);
+
+
+
+
 
   for (let i = 0; i < limitnp; i++) {
 
@@ -201,8 +226,6 @@ function mostrartodo() {
     divtablalimites.style.display = 'none';
   }
 
-  var tabla = document.getElementById('tabladatos');
-
 
   let tablita = document.getElementById('inputTable');
   let tiempolle = 0;
@@ -226,25 +249,20 @@ function mostrartodo() {
     let cell2 = row.insertCell(1);
     let cell3 = row.insertCell(2);
     let cell4 = row.insertCell(3);
-    let cell5 = row.insertCell(4);
     cell1.innerHTML = vectornombresprioridad[i];
     cell2.innerHTML = tiempolle;
     cell3.appendChild(inp);
-    cell4.setAttribute("class", "servtime");
-    cell5.appendChild(inp2);
+    cell4.appendChild(inp2);
     if (i == 0) {
-      cell5.setAttribute("class", "priority-only initial");
+      cell4.setAttribute("class", "priority-only initial");
     }
     else {
-      cell5.setAttribute("class", "priority-only");
+      cell4.setAttribute("class", "priority-only");
     }
     tiempolle++;
     $('#diagramas').html('');
-    $('#diagramas').html('<h3>DIAGRAMA FCFS</h3><fresh></fresh><p id="timepro"></p><h3>DIAGRAMA DE SJF</h3><fresh id="DIA1"></fresh><p id="timepro1"></p><h3>DIAGRAMA DE PRIORIDAD</h3><fresh id="DIA2"></fresh><p id="timepro2"></p><h3>DIAGRAMA DE ROBIN</h3><fresh id="DIA3"></fresh><p id="timepro3"></p><p>Timer: <strong id="timer"></strong> sec</p>');
+    $('#diagramas').html('<h3>DIAGRAMA FCFS</h3><fresh></fresh><p id="timepro"></p><br></br><br></br><h3>DIAGRAMA DE SJF</h3><fresh id="DIA1"></fresh><p id="timepro1"></p><br></br><br></br><h3>DIAGRAMA DE PRIORIDAD</h3><fresh id="DIA2"></fresh><p id="timepro2"></p><br></br><br></br><h3>DIAGRAMA DE ROBIN</h3><p id="tq"></p><fresh id="DIA3"></fresh><p id="timepro3"></p><p>Timer: <strong id="timer"></strong> sec</p>');
   }
-
-
-
 
 
   var tabla2 = document.getElementById('tablalimites');
@@ -254,6 +272,7 @@ function mostrartodo() {
   var cel3 = row2.insertCell(2);
   var cel4 = row2.insertCell(3);
   var cel5 = row2.insertCell(4);
+  var cel6 = row2.insertCell(5);
 
   cel1.innerHTML = 'Limites';
   if (d == 1) {
@@ -270,6 +289,12 @@ function mostrartodo() {
   if (c == 1) {
     cel5.innerHTML = limitprio;
   } else { cel5.innerHTML = 'No hay limites'; }
+
+  if (e == 1) {
+    cel6.innerHTML = limitQ;
+  } else { cel6.innerHTML = 'No hay limites'; }
+
+
 
   drawfcfs();
 
