@@ -308,7 +308,7 @@ function mostrartodo() {
     }
     tiempolle++;
     $('#diagramas').html('');
-    $('#diagramas').html('<h3>DIAGRAMA FCFS</h3><fresh></fresh><p id="timepro"></p><br></br><br></br><h3>DIAGRAMA DE SJF</h3><fresh id="DIA1"></fresh><p id="timepro1"></p><br></br><br></br><h3>DIAGRAMA DE PRIORIDAD</h3><fresh id="DIA2"></fresh><p id="timepro2"></p><br></br><br></br><h3>DIAGRAMA DE ROBIN</h3><p id="tq"></p><fresh id="DIA3"></fresh><p id="timepro3"></p><p>Tiempo: <strong id="timer"></strong> segundos</p>');
+    $('#diagramas').html('<h3>DIAGRAMA FCFS</h3><fresh></fresh><p id="timepro"></p><br></br><br></br><h3>DIAGRAMA DE SJF</h3><fresh id="DIA1"></fresh><p id="timepro1"></p><br></br><br></br><h3>DIAGRAMA DE PRIORIDAD</h3><fresh id="DIA2"></fresh><p id="timepro2"></p><br></br><br></br><h3>DIAGRAMA DE ROBIN</h3><p id="tq"></p><fresh id="DIA3"></fresh><p id="timepro3"></p><p>Tiempo: <strong id="timer"></strong> segundos</p> <h1 style="margin: 50px;">El algoritmo más eficiente es: SJF</h1>');
   }
 
 
